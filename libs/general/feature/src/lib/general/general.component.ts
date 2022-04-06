@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralFacade } from '@memo-worspace/general/application';
 import { tap } from 'rxjs';
+import { ObservableFieldLogger } from '../../../../application/src/lib/+state/loggers';
 
 @Component({
     selector: 'memo-worspace-general',
@@ -9,10 +10,14 @@ import { tap } from 'rxjs';
 })
 export class GeneralComponent implements OnInit {
 
-    object = this.facade.object.pipe(tap(x=> console.log('emit object, value :',x)))
-    basic = this.facade.basic.pipe(tap(x=> console.log('emit basic, value :',x)))
-    objectOnlyTest1 = this.facade.objectOnlyTest1.pipe(tap(x=> console.log('emit objectOnlyTest1, value :',x)))
-    objectOnlyTest2 = this.facade.objectOnlyTest2.pipe(tap(x=> console.log('emit objectOnlyTest2, value :',x)))
+    @ObservableFieldLogger()
+    object = this.facade.object
+
+    roboValue = '';
+
+    basic = this.facade.basic.pipe(tap(x => console.log('emit basic, value :', x)))
+    objectOnlyTest1 = this.facade.objectOnlyTest1.pipe(tap(x => console.log('emit objectOnlyTest1, value :', x)))
+    objectOnlyTest2 = this.facade.objectOnlyTest2.pipe(tap(x => console.log('emit objectOnlyTest2, value :', x)))
 
     constructor(private facade: GeneralFacade) {
     }
@@ -20,7 +25,8 @@ export class GeneralComponent implements OnInit {
     ngOnInit(): void {
     }
 
-
+    // TODO CallMethodLogger error
+    // @CallMethodLogger()
     updateObject(value: string): void {
         this.facade.updateObject({
             test1: {test11: value},
