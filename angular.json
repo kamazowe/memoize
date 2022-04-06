@@ -1,9 +1,11 @@
 {
   "version": 2,
   "projects": {
-    "main": "libs/main",
+    "general-application": "libs/general/application",
+    "general-feature": "libs/general/feature",
     "memo": "apps/memo",
     "memo-e2e": "apps/memo-e2e",
+    "shell": "libs/shell",
     "store": "libs/store"
   }
 }

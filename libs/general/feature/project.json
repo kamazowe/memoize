@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/general/feature",
+  "sourceRoot": "libs/general/feature/src",
+  "prefix": "memo-worspace",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/general/feature"],
+      "options": {
+        "jestConfig": "libs/general/feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/general/feature/src/**/*.ts",
+          "libs/general/feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
