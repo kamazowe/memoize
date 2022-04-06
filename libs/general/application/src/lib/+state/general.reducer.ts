@@ -51,6 +51,7 @@ export const generalReducer = createReducer(initialState,
         ...state,
                 object: {
             ...state.object,
+                    test2: {...state.object.test2},
                     test1: payload
             }
         }
@@ -62,6 +63,7 @@ export const generalReducer = createReducer(initialState,
             ...state,
             object: {
                 ...state.object,
+                test1: {...state.object.test1},
                 test2:payload
             }
         }

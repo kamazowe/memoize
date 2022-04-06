@@ -1,6 +1,6 @@
 import { Observable, tap } from 'rxjs';
 
-export function ObservableFieldLogger(text = 'Emit') {
+export function ObservableFieldLogger(text = 'Emit::') {
     return (target: {} | any, name: PropertyKey): any => {
         let currentValue: any;
         const descriptor = {
@@ -8,7 +8,7 @@ export function ObservableFieldLogger(text = 'Emit') {
                 return currentValue
             },
             set(newValue: Observable<any>) {
-                currentValue = newValue.pipe(tap(x => console.log(`${text}, field name: ${(name as string)}, value :\n ${JSON.stringify(x)}`)))
+                currentValue = newValue.pipe(tap(x => console.log(`${text}\n field name: ${(name as string)},\n value : ${JSON.stringify(x)}`)))
             }
         }
         Object.defineProperty(target, name, descriptor);

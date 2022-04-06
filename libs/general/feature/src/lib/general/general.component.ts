@@ -13,11 +13,17 @@ export class GeneralComponent implements OnInit {
     @ObservableFieldLogger()
     object = this.facade.object
 
-    roboValue = '';
 
-    basic = this.facade.basic.pipe(tap(x => console.log('emit basic, value :', x)))
-    objectOnlyTest1 = this.facade.objectOnlyTest1.pipe(tap(x => console.log('emit objectOnlyTest1, value :', x)))
-    objectOnlyTest2 = this.facade.objectOnlyTest2.pipe(tap(x => console.log('emit objectOnlyTest2, value :', x)))
+    @ObservableFieldLogger()
+    basic = this.facade.basic
+    @ObservableFieldLogger()
+    objectOnlyTest1 = this.facade.objectOnlyTest1
+    @ObservableFieldLogger()
+    objectOnlyTest2 = this.facade.objectOnlyTest2
+    @ObservableFieldLogger()
+    objectOnlyTest11 = this.facade.objectOnlyTest11
+    @ObservableFieldLogger()
+    objectOnlyTest22 = this.facade.objectOnlyTest22
 
     constructor(private facade: GeneralFacade) {
     }

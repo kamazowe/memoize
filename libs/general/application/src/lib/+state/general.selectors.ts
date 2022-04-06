@@ -14,18 +14,34 @@ const selectBacic = createSelector(getGeneralState,state=> {
     // console.log('calc selector state.basic')
     return state.basic
 })
+
 const selectObjectOnlyTest1 = createSelector(selectObject,object => {
     // console.log('calc selector object.test1')
     return object.test1
 })
+
 const selectObjectOnlyTest2 = createSelector(selectObject,object => {
     // console.log('calc selector object.test2')
     return object.test2
 })
 
+const selectObjectOnlyTest11 = createSelector(selectObjectOnlyTest1,object => {
+    // console.log('calc selector object.test11')
+    return object.test11
+})
+
+const selectObjectOnlyTest22 = createSelector(selectObjectOnlyTest2,object => {
+    // console.log('calc selector object.test22')
+    return object.test22
+})
+
+
+
 export const generalQuery = {
     selectObject,
     selectBacic,
     selectObjectOnlyTest1,
-    selectObjectOnlyTest2
+    selectObjectOnlyTest2,
+    selectObjectOnlyTest11,
+    selectObjectOnlyTest22
 };

@@ -12,7 +12,9 @@ export class GeneralFacade {
     object = this.store.select(generalQuery.selectObject)
     basic = this.store.select(generalQuery.selectBacic)
     objectOnlyTest1 = this.store.select(generalQuery.selectObjectOnlyTest1)
+    objectOnlyTest11 = this.store.select(generalQuery.selectObjectOnlyTest11)
     objectOnlyTest2 = this.store.select(generalQuery.selectObjectOnlyTest2)
+    objectOnlyTest22 = this.store.select(generalQuery.selectObjectOnlyTest22)
 
 
 
