@@ -1,1 +1,1 @@
-export type Basic = number
+export type Basic = string

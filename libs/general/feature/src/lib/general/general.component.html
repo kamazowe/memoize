@@ -1,1 +1,30 @@
 <p>general works!</p>
+
+
+<ng-container *ngIf="basic | async as basicValue">
+    updateBasic
+    <input [ngModel]="basicValue" (ngModelChange)="updateBasic($event)">
+    <pre>{{basicValue | json}}</pre>
+    <hr>
+</ng-container>
+
+<ng-container *ngIf="object | async as objectValue">
+    updateObject
+    <input [ngModel]="objectValue.test1.test11" (ngModelChange)="updateObject($event)">
+    <pre>{{objectValue | json}}</pre>
+    <hr>
+</ng-container>
+
+<ng-container *ngIf="objectOnlyTest1 | async as objectOnlyTest1Value">
+    updateObjectOnlyTest1
+    <input [ngModel]="objectOnlyTest1Value.test11" (ngModelChange)="updateObjectOnlyTest1($event)">
+    <pre>{{objectOnlyTest1Value | json}}</pre>
+    <hr>
+</ng-container>
+
+<ng-container *ngIf="objectOnlyTest2 | async as objectOnlyTest2Value">
+    updateObjectOnlyTest2
+    <input [ngModel]="objectOnlyTest2Value.test22" (ngModelChange)="updateObjectOnlyTest2($event)">
+    <pre>{{objectOnlyTest2Value | json}}</pre>
+    <hr>
+</ng-container>

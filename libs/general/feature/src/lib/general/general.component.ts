@@ -1,15 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralFacade } from '@memo-worspace/general/application';
+import { tap } from 'rxjs';
 
 @Component({
-  selector: 'memo-worspace-general',
-  templateUrl: './general.component.html',
-  styleUrls: ['./general.component.scss']
+    selector: 'memo-worspace-general',
+    templateUrl: './general.component.html',
+    styleUrls: ['./general.component.scss']
 })
 export class GeneralComponent implements OnInit {
 
-  constructor() { }
+    object = this.facade.object.pipe(tap(x=> console.log('emit object, value :',x)))
+    basic = this.facade.basic.pipe(tap(x=> console.log('emit basic, value :',x)))
+    objectOnlyTest1 = this.facade.objectOnlyTest1.pipe(tap(x=> console.log('emit objectOnlyTest1, value :',x)))
+    objectOnlyTest2 = this.facade.objectOnlyTest2.pipe(tap(x=> console.log('emit objectOnlyTest2, value :',x)))
 
-  ngOnInit(): void {
-  }
+    constructor(private facade: GeneralFacade) {
+    }
 
+    ngOnInit(): void {
+    }
+
+
+    updateObject(value: string): void {
+        this.facade.updateObject({
+            test1: {test11: value},
+            test2: {test22: value}
+        })
+    }
+
+    updateBasic(value: string): void {
+        this.facade.updateBasic(value)
+    }
+
+    updateObjectOnlyTest1(value: string): void {
+        this.facade.updateObjectOnlyTest1({test11: value})
+    }
+
+    updateObjectOnlyTest2(value: string): void {
+        this.facade.updateObjectOnlyTest2({test22: value})
+    }
 }
