@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { environment } from '../../../../apps/memo/src/environments/environment';
 
 @NgModule({
   imports: [
@@ -11,7 +10,8 @@ import { environment } from '../../../../apps/memo/src/environments/environment'
     StoreModule.forRoot(
       {},
       {
-        metaReducers: !environment.production ? [] : [],
+          // todo
+        metaReducers: true ? [] : [],
         runtimeChecks: {
           strictActionImmutability: true,
           strictStateImmutability: true,
@@ -19,7 +19,8 @@ import { environment } from '../../../../apps/memo/src/environments/environment'
       }
     ),
     EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    // todo
+      true ? StoreDevtoolsModule.instrument() : [],
   ],
 })
 export class NgrxModule {}
